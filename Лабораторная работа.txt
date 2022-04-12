@@ -1,0 +1,19 @@
+select * from Production.ProductListPriceHistory
+
+select DocumentNode,DocumentLevel,Title,[Owner],[FILENAME],FileExtension from Production.Document
+
+select SalesOrderID,SalesOrderDetailID,ProductID,OrderQty from Sales.SalesOrderDetail where orderqty between 1 and 3
+
+select BusinessEntityID,StartDate,EndDate from HumanResources.EmployeeDepartmentHistory where enddate is not null
+
+select * from Person.PhoneNumberType where name like '%e%'
+
+select TerritoryID,[Name],CountryRegionCode from Sales.SalesTerritory where countryregioncode in ('CA', 'us')
+
+select JobCandidateID, BusinessEntityID,[Resume], isnull(businessentityid, 0) as businessentityid from HumanResources.JobCandidate
+
+select ProductID,[Name], coalesce(style, productline, 'UNKNOWN') as measurement from Production.Product
+
+select ContactTypeID,[Name] from Person.ContactType order by contacttypeid desc
+
+select SalesReasonID,[Name], replace(ReasonType, 'Other', 'NULL') ReasonType from Sales.SalesReason
