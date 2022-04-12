@@ -1,0 +1,22 @@
+select avg(StandardCost) as standardcost
+from production.ProductCostHistory
+
+select PasswordSalt
+from person.password
+where PasswordSalt like 'I%' or PasswordSalt like 'i%'
+
+select sum(VacationHours) as sum_hours, Gender
+from humanresources.employee
+group by Gender
+
+select City, count(AddressLine1)
+from person.address
+group by City having count(AddressLine1) > 10
+
+
+
+select productid,
+listprice,
+RANK() OVER (PARTITION BY productid ORDER BY listprice) rank_employee
+from production.productlistpricehistory
+where listprice > 24;
